@@ -93,17 +93,22 @@ List all volumes
 docker volume ls
 ```
 
+Look into a volume
+```zsh
+docker volume inspect [VOLUME]
+```
+
 Run a container with a named volume
 ```zsh
 docker run -d -p [APP_PORT]:[ACCESS_PORT] --rm --name [CONTAINER] -v [VOLUME]:[CONTAINER_PATH] [IMAGE]:[TAG]
 ```
 
-Remove an anonymous volume
+Remove a volume
 ```zsh
 docker volume rm [VOLUME]
 ```
 
-Remove all anonymous volumes
+Remove all volumes
 ```zsh
 docker volume prune
 ```
@@ -158,9 +163,38 @@ Volumes by default are read/write
 
 For some volumes, particularly bind mount, you want to be able to change the source code but you don't want the container itself to be able to change the code
 
-You can enforce this read only behavior with read only volumes
+You can enforce this read only behavior with read only volumes `:ro`
 
 Run a container with a Read Only Bind Mount
 ```zsh
-docker run -d -p [APP_PORT]:[ACCESS_PORT] --rm -name [CONTAINER] -v [VOLUME]:[CONTAINER_PATH] -v [ABSOLUTE_PATH_TO_PROJECT_FOLDER]:/app:ro -v [ANON_VOLUME] [IMAGE]:[TAG]
+docker run -d -p [APP_PORT]:[ACCESS_PORT] --rm -name [CONTAINER] -v [VOLUME]:[CONTAINER_PATH] -v [ABSOLUTE_PATH_TO_PROJECT_FOLDER]:/app:ro -v /app/temp -v [ANON_VOLUME] [IMAGE]:[TAG]
+```
+
+### dockerignore
+
+With a `.dockerignore` file you can specify which files can be ignored, even when you copy all files
+
+In general, you want to add anything which isn't required by your application to execute correctly
+
+* Dockerfile
+* node_modules
+* .git
+* .gitignore
+* .env
+
+### ARGuments & ENVironment Variable
+
+ARG | ENV
+--- | ---
+Available inside of Dockerfile, NOT accessible ubn CMD or any application code | Available inside of Dockerfile & in application code
+Set on image build (**docker build**) via --build-arg | Set via ENV in Dockerfile or via --env on **docker run**
+
+A shortened way to use `--env`
+```zsh
+-e
+```
+
+Point env at a file
+```zsh
+--env-file [RELATIVE_PATH_TO_ENV]
 ```
