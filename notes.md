@@ -74,6 +74,11 @@ Remove a container
 docker rm [CONTAINER]
 ```
 
+Remove all containers
+```zsh
+docker container prune
+```
+
 ### Volumes
 
 Volumes are managed by Docker.
