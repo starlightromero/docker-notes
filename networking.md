@@ -4,6 +4,7 @@
   * API Request
 * Case 2: Container to Local Host Machine Communication
   * Connecting to a database (MongoDB)
+  * host.docker.internal
 * Case 3: Container to Container Communication
   * Another container which contains a SQL Database
   * Another container which contains the back-end
