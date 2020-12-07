@@ -19,3 +19,8 @@ Remove all volumes
 ```zsh
 docker-compose down -v
 ```
+
+Build images without creating containers
+```zsh
+docker-compose build
+```
