@@ -5,3 +5,19 @@
 * Containerized apps might need a build step (i.e. React apps)
 * Multi-Container projetcs might need to be split (or should be split) across multiple hosts/remote machines
 * Trade-offs between control and responsibility might be worth it
+
+### Hosting
+
+AWS EC2 is a service that allows you to spin up and manage your own remote machines
+
+1. Create and launch EC2 instance, VPC (virtual public cloud) and security group
+2. Configure security group to expose all required ports to WWW
+3. Connect to instance (SSH), install Docker and run container
+
+### Bind Mounts, Volumes & COPY
+
+Development | Production
+--- | ---
+Containers should encapsulate the runtime environment but not necessarily the code | A container should really work standalone, you should NOT have source code on your remote machine
+Use Bind Mounts to provide your local host project files to the running container | Use COPY to copy a code snapshot into the image
+Allows for instant updates without restarting the container | Ensures that every images runs without any extra surrounding configuration or code
