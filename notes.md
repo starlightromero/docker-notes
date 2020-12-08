@@ -59,6 +59,11 @@ Run a named container in detatch mode with automatic removal on stop
 docker run -d -p [APP_PORT]:[ACCESS_PORT] --rm --name [CONTAINER] [IMAGE]:[TAG]
 ```
 
+Attach to a container that was started in detatch mode
+```zsh
+docker container attach [CONTAINER]
+```
+
 Restart a stopped container
 ```zsh
 docker start [CONTAINER]
