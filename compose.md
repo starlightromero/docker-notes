@@ -34,3 +34,8 @@ Run a single service from a `docker-compose.yml` file and remove the container w
 ```zsh
 docker-compose run --rm [SERVICE] [CMD]
 ```
+
+Force docker compose to rebuild images
+```zsh
+docker-compose up --build [SERVICE]
+```
