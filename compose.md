@@ -24,3 +24,8 @@ Build images without creating containers
 ```zsh
 docker-compose build
 ```
+
+Run a single service from a `docker-compose.yml` file
+```zsh
+docker-compose run [SERVICE] [CMD]
+```
