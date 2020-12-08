@@ -29,3 +29,8 @@ Run a single service from a `docker-compose.yml` file
 ```zsh
 docker-compose run [SERVICE] [CMD]
 ```
+
+Run a single service from a `docker-compose.yml` file and remove the container when it is stopped
+```zsh
+docker-compose run --rm [SERVICE] [CMD]
+```
