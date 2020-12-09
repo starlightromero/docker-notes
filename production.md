@@ -41,3 +41,16 @@ Your Own Remote Machine | Managed Remote Machine
 AWS EC2 | AWS ECS
 You need to create them, manage them, keep them updated, monitor them, scale them, etc. | Creation, management, updating is handled automatically, monitoring and scaling is simplified
 *Great if you're an experienced admin/cloud expert* | *Great if you simply want to deploy your app/containers*
+
+### Load Balancer
+
+### Databases
+
+You can manage your own databases however
+* Scaling and managing availability can be challenging
+* Performance (also during traffic spikes) could be bad
+* Taking care of backups and security can be challenging
+
+An alternative is a managed database service
+* MYSQL -> AWS RDS (RDS = Relational Database Service)
+* MongoDB -> MongoDB Atlas
