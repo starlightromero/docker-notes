@@ -32,6 +32,10 @@ Push source code to remote machine, run docker build then docker run | Just exec
 
 ### Managed vs Automated
 
+EC2 = Elastic Compute Cloud
+
+ECS = Elastic Container Service
+
 Your Own Remote Machine | Managed Remote Machine
 --- | ---
 AWS EC2 | AWS ECS
