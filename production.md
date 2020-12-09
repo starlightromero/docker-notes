@@ -21,3 +21,19 @@ Development | Production
 Containers should encapsulate the runtime environment but not necessarily the code | A container should really work standalone, you should NOT have source code on your remote machine
 Use Bind Mounts to provide your local host project files to the running container | Use COPY to copy a code snapshot into the image
 Allows for instant updates without restarting the container | Ensures that every images runs without any extra surrounding configuration or code
+
+### Deploy Source Code vs Image
+
+Source Code | Built Image
+--- | ---
+Build image on remote machine | Build image before deployment (i.e. on local machine)
+Push source code to remote machine, run docker build then docker run | Just execute docker run
+**Unnecessary complexity** | **Avoid unnecessary remote sever work**
+
+### Managed vs Automated
+
+Your Own Remote Machine | Managed Remote Machine
+--- | ---
+AWS EC2 | AWS ECS
+You need to create them, manage them, keep them updated, monitor them, scale them, etc. | Creation, management, updating is handled automatically, monitoring and scaling is simplified
+*Great if you're an experienced admin/cloud expert* | *Great if you simply want to deploy your app/containers*
